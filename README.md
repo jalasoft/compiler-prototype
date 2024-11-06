@@ -32,7 +32,7 @@ terminály a neterminály.
 
 ### FOLLOW(A)
 
-Může však existovat providlo *A &rarr; $\epsilon$* které znamená odebrání neterminálu
+Může však existovat providlo A &rarr; $\epsilon$ které znamená odebrání neterminálu
 z vrcholu zásobníku při expanzi. V takovém případě nás také zajímá množina všech terminálů
 které moho následovat za neterminálem *A* ve větných formách.
 
