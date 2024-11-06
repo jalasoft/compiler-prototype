@@ -36,7 +36,7 @@ Může však existovat providlo A &rarr; $\epsilon$ které znamená odebrání n
 z vrcholu zásobníku při expanzi. V takovém případě nás také zajímá množina všech terminálů
 které moho následovat za neterminálem *A* ve větných formách.
 
-*FOLLOW(A) =* {a; S &rarr;* $\alpha$ A $\beta$, a $\in$ FIRST($\beta$), $\alpha \in (N \cup T)^*$}
+*FOLLOW(A) =* {a; S &rarr;* $\alpha$ A $\beta$, a $\in$ FIRST($\beta$), $\alpha, \beta \in (N \cup T)^*$}
 
 Pokud 
 A &rarr; $\alpha | \epsilon$ tedy neterminál mající více pravých stran kde jedna tvoří prázdný řetězec
