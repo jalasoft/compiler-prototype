@@ -5,13 +5,13 @@
 
 FIRST($\alpha$) je funkce která vrací množinu všech terminálů kterými může začít řetězec $\alpha$ 
 
-{ $\alpha$: S ->* $\alpha$; $\alpha in T \cap N$ }
+{ $\alpha$: S ->* $\alpha$; $\alpha \in T \cap N$ }
 
-(skladajici se z terminalu a neterminalu)
+(skladajici se z terminalu T a neterminalu N)
 
-potom musi platit pokud mam pravislo S -> alfa | beta:
-FIRST(alfa) v pruniku s FIRST(beta) = prazdna mnozina
-$P(A \cap B)$ 
+potom musí platit pokud máme pravidlo S -> $\alpha$ | $\beta$:
+FIRST($\alpha$) $ \cap $ FIRST($\beta$) = 0 
+
 
 
 
