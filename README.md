@@ -9,8 +9,11 @@ FIRST($\alpha$) je funkce která vrací množinu všech terminálů kterými mů
 
 (skladajici se z terminalu T a neterminalu N)
 
-potom musí platit pokud máme pravidlo S -> $\alpha$ | $\beta$:
-FIRST($\alpha$) $ \cap $ FIRST($\beta$) = 0 
+potom musí platit pokud máme pravidlo 
+
+S -> $\alpha$ | $\beta$:
+
+FIRST($\alpha$) $\cap$ FIRST($\beta$) = 0 
 
 
 
