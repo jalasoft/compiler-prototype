@@ -67,7 +67,7 @@ Toto je nedeterministické chování kdy automat se jakoby nachází ve více st
 
 Takto lze popsat jazyk L přijímaný automatem R:
 
-L(R) = {w: ($q_0$, w, $Z_0$) &rarr;\* ($q$, $\epsilon$, $\gamma$), $w \in T^*$, $q \in F$, $\gamma \in G^*$}
+L(R) = {w: ($q_0$, w, $Z_0$) &rarr;\* ($q$, $\epsilon$, $\gamma$), $w \in$ T\*, $q \in F$, $\gamma \in G^*$}
 
 tedy tak že automat postupným čtením vstupní věty *w* postupně přejde do jednoho za svých koncových stavů kdy na vstupu již
 není žádný vstupní symbol.
