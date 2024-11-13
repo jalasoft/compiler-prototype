@@ -136,7 +136,6 @@ Nyní již lze definovat podmíky za kterých je bezkontextová gramatika LL(1) 
 Pokud existuje pravidlo $A$ &rarr; $\alpha | \beta $:
 
 * $FIRST(\alpha) \cap FIRST(\beta) = 0$
-
 * pokud $\epsilon \in FIRST(\alpha)$ a $\epsilon \notin FIRST(\beta)$ pak 
 $FOLLOW(A) \cap FIRST(\beta) = 0$
 
