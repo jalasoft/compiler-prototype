@@ -129,7 +129,7 @@ větné formy následující za *A*.
 
 Proto byla definována funkce $FOLLOW(A)$ kde $A \in N$ následovně:
 
-$FOLLOW(A)$ = {$a; S &rarr; \alpha A \beta, a \in FIRST(\beta), \alpha, \beta \in (N \cup T)$ }
+$FOLLOW(A)$ = { $a; S &rarr; \alpha A \beta, a \in FIRST(\beta), \alpha, \beta \in (N \cup T)$ }
 
 Nyní již lze definovat podmíky za kterých je bezkontextová gramatika LL(1) gramatikou:
 
