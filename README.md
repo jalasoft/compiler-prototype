@@ -90,13 +90,18 @@ kladená na jejich pravidla.
 
 ## LL gramatiky
 
-Pokud máme gramatiku *G=(N, T, P, S)* ve které má nějaké pravidlo pro stejný neterminál více pravých stran,
+Pokud máme gramatiku *G=(N, T, P, S)* ve které má nějaké pravidlo více pravých stran,
 
 A &rarr; $\alpha$ | $\beta$ kde $\alpha, \beta \in (T \cup N)^*$
 
 a chceme se rozhodnout na základě dopředu přečteného symbolu *a* jaké pravidlo použijeme při expanzi
-tohoto neterminálu na vrcholu zásobníku, musíme pro obě pravé strany znát věchny terminální symboly
-kterými mohou začít. Pro to se definuje funkce *FIRST($\alpha$)*.
+tohoto neterminálu na vrcholu zásobníku, musíme nejprve spočítat funkce *FIRST* a *FOLLOW* které nám pomohou 
+učit zdali se jedná o LL gramatiku, a jaké pravidlo použít pro expanzi neterminálu.
+
+LL(n) znamená:
+* L - čteme vstup z leva
+* L - tvoříme levý rozklad
+* n - počet dopředu přečtených vsupních symbolů
 
 ### FIRST($\alpha$)
 
@@ -105,16 +110,41 @@ FIRST($\alpha$) = { *a*: $\alpha$&rarr; a $\beta$, a $\in$ T, $\alpha,\beta \in 
 neboli je to funkce která vrací množinu všech terminálů kterými může začít řetězec $\alpha$ tvořený
 terminály a neterminály.
 
+Učitě musí pro LL(1) gramatiku musí platit pokud máme pravidlo *A &rarr;* $\alpha$ | $\beta$:
+
+$FIRST(\alpha)\cap FIRST(\beta) = 0$
+
+Pravidlo $A &rarr; \alpha$ použijeme pokud na vstupu je symbol $a \in FIRST(\alpha)$
+Podobně $A &rarr; \beta$ použijeme pokud na vstupu je symbol $a \in FIRST(\beta)$
+Toto platí v případě že $\epsilon \notin FIRST(\alpha)$ a $a \notin FIRST(\beta)$.
+
 ### FOLLOW(A)
+Problém může nastat v případě existence pravidla
 
-Může však existovat providlo A &rarr; $\epsilon$ které znamená odebrání neterminálu
-z vrcholu zásobníku při expanzi. V takovém případě nás také zajímá množina všech terminálů
-které moho následovat za neterminálem *A* ve větných formách.
+$A$ &rarr; $\epsilon$
 
-*FOLLOW(A) =* {a; S &rarr;* $\alpha$ A $\beta$, a $\in$ FIRST($\beta$), $\alpha, \beta \in (N \cup T)^*$}
+To vlastně představuje odebrání neterminálu z vrcholu zásobníku. Pokud bychom tedy chtěli vědět
+kdy použít toto pravilo, museli bychom znát neterminály kterými mohou začít všechny
+větné formy následující za *A*. 
 
-Pokud 
-A &rarr; $\alpha | \epsilon$ tedy neterminál mající více pravých stran kde jedna tvoří prázdný řetězec
+Proto byla definována funkce $FOLLOW(A)$ kde $A \in N$ následovně:
 
+$FOLLOW(A)$ = {$a; S &rarr; \alpha A \beta, a \in FIRST(\beta), \alpha, \beta \in (N \cup T)$ }
+
+Nyní již lze definovat podmíky za kterých je bezkontextová gramatika LL(1) gramatikou:
+
+Pokud existuje pravidlo $A$ &rarr; $\alpha | \beta $:
+
+$FIRST(\alpha) \cup FIRST(\beta) = 0$
+
+pokud $\epsilon \in FIRST(\alpha)$ a $\epsilon \notin FIRST(\beta)$ pak 
+$FOLLOW(A) \cap FIRST(\beta) = 0$
+
+Potom lze deterministicky určit jaké pravidlo použít. Pokud máme pravidlo $A$ &rarr; $\alpha | \beta$:
+
+pro $a$ na vstupu použijeme $A$ &rarr; $\alpha$ pokud $a \in FIRST(\alpha)$
+
+pokud $\epsilon$ je derivovatelný z $\beta$ neboli $\epsilon \in FIRST(\beta)$ potom 
+pro $a$ na vstupu použijeme $A$ &rarr; $\beta$ pokud $a \in FIRST(\beta) \cup FOLLOW(A)$
 
 
